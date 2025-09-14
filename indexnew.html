@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalu & Kalu | Attorneys at Law</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset and Variables */
+        :root {
+            --primary: #0b1f3a;
+            /* Navy */
+            --secondary: #9c7c2c;
+            /* Gold */
+            --accent: #c59d3f;
+            /* Lighter Gold */
+            --light: #f7f6f3;
+            /* Paper */
+            --dark: #1a1d21;
+            /* Near black */
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+
+        /* Additional Themes */
+        [data-theme="midnight"] {
+            --primary: #0a0f28;
+            --secondary: #13b0a5;
+            --accent: #45d3c7;
+            --light: #0f1221;
+            --dark: #e9eef6;
+            --gray: #9aa4b2;
+        }
+
+        [data-theme="royal"] {
+            --primary: #3b0d11;
+            /* Burgundy */
+            --secondary: #b08900;
+            /* Royal Gold */
+            --accent: #d9a404;
+            --light: #fbf7ef;
+            --dark: #241c15;
+            --gray: #6d6259;
+        }
+
+        [data-theme="ocean"] {
+            --primary: #0b2545;
+            /* Deep Blue */
+            --secondary: #00a6fb;
+            /* Cyan */
+            --accent: #58cced;
+            --light: #f4faff;
+            --dark: #0a1a2f;
+            --gray: #667892;
+        }
+
+        [data-theme="forest"] {
+            --primary: #0b2e13;
+            /* Deep Green */
+            --secondary: #2ea043;
+            /* Emerald */
+            --accent: #57d16b;
+            --light: #f4fbf6;
+            --dark: #142316;
+            --gray: #5f7665;
+        }
+
+        [data-theme="sunset"] {
+            --primary: #2a0a0a;
+            /* Deep Maroon */
+            --secondary: #ff7a00;
+            /* Orange */
+            --accent: #ff4d6d;
+            /* Pink */
+            --light: #fff7f3;
+            --dark: #201313;
+            --gray: #7a6060;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-accent {
+            background: var(--primary);
+        }
+
+        .btn-accent:hover {
+            background: #0e2a53;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, rgba(11, 31, 58, 0.08) 0%, rgba(156, 124, 44, 0.08) 100%);
+            text-align: center;
+        }
+
+        /* Animated "shuttle" gradient option */
+        .hero.animated {
+            background: linear-gradient(120deg, var(--primary), var(--secondary), var(--accent));
+            background-size: 200% 200%;
+            animation: shuttle 10s ease infinite;
+        }
+
+        @keyframes shuttle {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(156, 124, 44, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(11, 31, 58, 0.04) 0%, rgba(197, 157, 63, 0.06) 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--gray);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            padding: 100px 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .form-field label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #e2e2e2;
+            border-radius: 8px;
+            background: #fff;
+            transition: var(--transition);
+        }
+
+        .form-field textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 4px rgba(197, 157, 63, 0.15);
+        }
+
+        .form-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .form-hint {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .error-text {
+            color: #b42318;
+            font-size: 0.9rem;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .is-invalid {
+            border-color: #b42318 !important;
+            box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.15) !important;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .faq-item {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .faq-item+.faq-item {
+            margin-top: 14px;
+        }
+
+        .faq-q {
+            width: 100%;
+            text-align: left;
+            background: #fff;
+            border: 0;
+            padding: 18px 20px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-a {
+            display: none;
+            padding: 0 20px 18px;
+            color: var(--gray);
+        }
+
+        .faq-item.active .faq-a {
+            display: block;
+        }
+
+        .faq-item.active .faq-q {
+            color: var(--secondary);
+        }
+
+        /* Back to top */
+        #backToTop {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 0;
+            background: var(--secondary);
+            color: #fff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+        }
+
+        #backToTop:hover {
+            background: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Theme switcher UI */
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-select {
+            padding: 8px 12px;
+            border: 1px solid #e2e2e2;
+            border-radius: 20px;
+            background: #fff;
+            font-weight: 600;
+        }
+
+        .toggle-anim {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            cursor: pointer;
+            user-select: none;
+            font-weight: 600;
+        }
+
+        .toggle-anim input {
+            accent-color: var(--secondary);
+        }
+    </style>
+</head>
+
+<body> <!-- Header -->
+    <header>
+        <div class="container header-content"> <a href="#home" class="logo">Kalu &amp; Kalu</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#practice">Practice Areas</a></li>
+                    <li><a href="#about">Our Firm</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="toolbar"> <label class="toggle-anim"><input type="checkbox" id="animToggle"> Animated</label>
+                <select id="themeSelect" class="theme-select" aria-label="Select theme">
+                    <option value="default">Classic</option>
+                    <option value="midnight">Midnight</option>
+                    <option value="royal">Royal</option>
+                    <option value="ocean">Ocean</option>
+                    <option value="forest">Forest</option>
+                    <option value="sunset">Sunset</option>
+                </select>
+            </div>
+            <div class="mobile-menu-btn"> <i class="fas fa-bars"></i> </div>
+        </div>
+    </header> <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Trusted Legal Counsel for Business and Individuals</h1>
+            <p>Strategic, pragmatic and client-first advocacy. Kalu &amp; Kalu provides clear legal guidance, meticulous
+                execution, and reliable representation across key practice areas.</p>
+            <div class="hero-buttons"> <a href="#contact" class="btn">Book a Consultation</a> <a href="#practice"
+                    class="btn btn-accent">Explore Practice Areas</a> </div>
+        </div>
+    </section> <!-- Practice Areas -->
+    <section id="practice" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Practice Areas</h2>
+                <p>Depth of expertise combined with practical business sense to deliver outcomes that matter</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"> <i class="fas fa-gavel"></i> </div>
+                    <h3>Litigation &amp; Dispute Resolution</h3>
+                    <p>Seasoned representation in complex commercial disputes, arbitration, and regulatory matters.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"> <i class="fas fa-briefcase"></i> </div>
+                    <h3>Corporate &amp; Commercial</h3>
+                    <p>Company set-up, governance, M&amp;A, contracts, and ongoing counsel for growing businesses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"> <i class="fas fa-home"></i> </div>
+                    <h3>Real Estate &amp; Property</h3>
+                    <p>Due diligence, conveyancing, development projects, leasing and property finance.</p>
+                </div>
+            </div>
+        </div>
+    </section> <!-- About / Our Firm -->
+    <section id="about" class="features" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Firm</h2>
+                <p>We combine big-firm experience with boutique attention to deliver responsive, high-quality legal
+                    services.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-scale-balanced"></i></div>
+                    <h3>Integrity</h3>
+                    <p>Uncompromising ethics, confidentiality and transparency in every matter we handle.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Expertise</h3>
+                    <p>Attorneys with strong court and boardroom experience across multiple industries.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Client Focus</h3>
+                    <p>Clear communication, practical advice and strong execution tailored to your objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Feedback from clients we have guided through critical legal matters</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content"> "Kalu &amp; Kalu navigated a high-stakes dispute with calm
+                        precision. Their strategy was decisive and effective." </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div>
+                            <h4>John D.</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content"> "They provided practical commercial advice beyond the legal fine
+                        print. Highly recommended counsel." </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div>
+                            <h4>Sarah M.</h4>
+                            <p>COO, Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content"> "Responsive, thorough and strategic. We closed our transaction on
+                        schedule and with confidence." </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RJ</div>
+                        <div>
+                            <h4>R. Johnson</h4>
+                            <p>Real Estate Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Contact CTA -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>Schedule a Consultation</h2>
+            <p>Tell us about your matter. We will respond promptly with clear next steps.</p> <a
+                href="mailto:consult@kaluandkalu.com" class="btn btn-accent">consult@kaluandkalu.com</a>
+            <div style="margin-top: 16px; color: rgba(255,255,255,0.9)">or call <a href="tel:+234000000000"
+                    style="text-decoration: underline; color: #fff;">+234 000 000 000</a></div>
+        </div>
+    </section> <!-- Consultation Form -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Request a Call Back</h2>
+                <p>Share a few details and we will reach out to you shortly.</p>
+            </div>
+            <form id="consultForm" novalidate>
+                <div class="form-grid">
+                    <div class="form-field"> <label for="fullName">Full Name</label> <input type="text" id="fullName"
+                            name="fullName" placeholder="Jane Doe" required>
+                        <div class="error-text" data-error-for="fullName">Please enter your full name.</div>
+                    </div>
+                    <div class="form-field"> <label for="email">Email</label> <input type="email" id="email"
+                            name="email" placeholder="you@example.com" required>
+                        <div class="error-text" data-error-for="email">Please enter a valid email address.</div>
+                    </div>
+                    <div class="form-field"> <label for="phone">Phone</label> <input type="tel" id="phone" name="phone"
+                            placeholder="+234 800 000 0000" required>
+                        <div class="error-text" data-error-for="phone">Please enter a valid phone number.</div>
+                    </div>
+                    <div class="form-field"> <label for="service">Practice Area</label> <select id="service"
+                            name="service" required>
+                            <option value="">Select...</option>
+                            <option>Litigation & Dispute Resolution</option>
+                            <option>Corporate & Commercial</option>
+                            <option>Real Estate & Property</option>
+                            <option>General Counsel</option>
+                        </select>
+                        <div class="error-text" data-error-for="service">Please select a practice area.</div>
+                    </div>
+                </div>
+                <div class="form-field" style="margin-top: 20px;"> <label for="message">Brief Description</label>
+                    <textarea id="message" name="message"
+                        placeholder="Tell us a bit about your matter (no confidential info)." required></textarea>
+                    <div class="error-text" data-error-for="message">Please provide a brief description.</div>
+                </div>
+                <div class="form-actions"> <button type="submit" class="btn">Request Call</button> <span
+                        class="form-hint">We respond within one business day.</span> </div>
+            </form>
+        </div>
+    </section> <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions about working with Kalu & Kalu.</p>
+            </div>
+            <div class="faq-item"> <button class="faq-q">Do you offer an initial consultation? <i
+                        class="fas fa-chevron-down"></i></button>
+                <div class="faq-a">Yes. We provide a short initial consultation to understand your matter and map next
+                    steps.</div>
+            </div>
+            <div class="faq-item"> <button class="faq-q">What are your fees? <i
+                        class="fas fa-chevron-down"></i></button>
+                <div class="faq-a">Fees depend on scope and urgency. We offer transparent quotes and engagement letters.
+                </div>
+            </div>
+            <div class="faq-item"> <button class="faq-q">Which regions do you serve? <i
+                        class="fas fa-chevron-down"></i></button>
+                <div class="faq-a">We serve clients across Nigeria and collaborate with international counsel where
+                    needed.</div>
+            </div>
+        </div>
+    </section> <button id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button> <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Kalu &amp; Kalu</h3>
+                    <p>Attorneys at Law. Strategic counsel for businesses and individuals.</p>
+                    <div class="social-links"> <a href="#"><i class="fab fa-linkedin-in"></i></a> </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Our Firm</a></li>
+                        <li><a href="#practice">Practice Areas</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#practice">Litigation &amp; Dispute Resolution</a></li>
+                        <li><a href="#practice">Corporate &amp; Commercial</a></li>
+                        <li><a href="#practice">Real Estate &amp; Property</a></li>
+                        <li><a href="#about">General Counsel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Justice Avenue, Lagos</li>
+                        <li><i class="fas fa-phone"></i> +234 000 000 000</li>
+                        <li><i class="fas fa-envelope"></i> info@kaluandkalu.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> Kalu &amp; Kalu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script> // Mobile menu toggle document.querySelector('.mobile-menu-btn').addEventListener('click', function() { document.querySelector('.nav-links').classList.toggle('active'); }); // Close menu when clicking outside document.addEventListener('click', function(event) { const isClickInsideNav = event.target.closest('nav'); const isClickInsideMenuBtn = event.target.closest('.mobile-menu-btn'); if (!isClickInsideNav && !isClickInsideMenuBtn) { document.querySelector('.nav-links').classList.remove('active'); } }); // Smooth scrolling for navigation links document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); const targetId = this.getAttribute('href'); if (targetId === '#') return; const targetElement = document.querySelector(targetId); if (targetElement) { window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' }); // Close mobile menu if open document.querySelector('.nav-links').classList.remove('active'); } }); }); // Dynamic year const y = document.getElementById('year'); if (y) { y.textContent = new Date().getFullYear(); } // Theme switching and animated hero toggle const themeSelect = document.getElementById('themeSelect'); const animToggle = document.getElementById('animToggle'); const root = document.documentElement; const hero = document.querySelector('.hero'); // Load persisted settings const savedTheme = localStorage.getItem('kk_theme'); const savedAnim = localStorage.getItem('kk_anim') === 'true'; if (savedTheme && savedTheme !== 'default') { root.setAttribute('data-theme', savedTheme); } if (themeSelect) themeSelect.value = savedTheme || 'default'; if (animToggle) animToggle.checked = savedAnim; if (savedAnim && hero) hero.classList.add('animated'); themeSelect && themeSelect.addEventListener('change', () => { const value = themeSelect.value; if (value === 'default') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', value); localStorage.setItem('kk_theme', value); }); animToggle && animToggle.addEventListener('change', () => { if (!hero) return; if (animToggle.checked) hero.classList.add('animated'); else hero.classList.remove('animated'); localStorage.setItem('kk_anim', String(animToggle.checked)); }); // Form validation const form = document.getElementById('consultForm'); const showError = (id, show) => { const input = document.getElementById(id); const error = document.querySelector(.error-text[data-error-for="${id}"]); if (!input || !error) return; if (show) { input.classList.add('is-invalid'); error.style.display = 'block'; } else { input.classList.remove('is-invalid'); error.style.display = 'none'; } }; const isEmail = (v) => /.+@.+\..+/.test(v); const isPhone = (v) => /[0-9+()\-\s]{7,}/.test(v); if (form) { form.addEventListener('submit', (e) => { e.preventDefault(); let valid = true; const values = { fullName: document.getElementById('fullName').value.trim(), email: document.getElementById('email').value.trim(), phone: document.getElementById('phone').value.trim(), service: document.getElementById('service').value, message: document.getElementById('message').value.trim() }; showError('fullName', values.fullName.length < 2); if (values.fullName.length < 2) valid = false; showError('email', !isEmail(values.email)); if (!isEmail(values.email)) valid = false; showError('phone', !isPhone(values.phone)); if (!isPhone(values.phone)) valid = false; showError('service', values.service === ''); if (values.service === '') valid = false; showError('message', values.message.length < 10); if (values.message.length < 10) valid = false; if (!valid) return; alert('Thank you. Your request has been received. We will contact you shortly.'); form.reset(); }); } // FAQ toggle document.querySelectorAll('.faq-q').forEach(btn => { btn.addEventListener('click', () => { const item = btn.closest('.faq-item'); item.classList.toggle('active'); }); }); // Back to top const backBtn = document.getElementById('backToTop'); window.addEventListener('scroll', () => { if (window.scrollY > 400) backBtn.style.display = 'flex'; else backBtn.style.display = 'none'; }); backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); }); </script>
+</body>
+<script>
+    const root = document.documentElement;
+    const themeSelect = document.getElementById('themeSelect');
+    const animToggle = document.getElementById('animToggle');
+    const hero = document.getElementById('hero');
+
+    // Load saved settings
+    const savedTheme = localStorage.getItem('kk_theme');
+    const savedAnim = localStorage.getItem('kk_anim') === 'true';
+
+    if (savedTheme && savedTheme !== 'default') {
+        root.setAttribute('data-theme', savedTheme);
+        themeSelect.value = savedTheme;
+    }
+    if (savedAnim) {
+        hero.classList.add('animated');
+        animToggle.checked = true;
+    }
+
+    // Theme switcher
+    themeSelect.addEventListener('change', () => {
+        const value = themeSelect.value;
+        if (value === 'default') {
+            root.removeAttribute('data-theme');
+        } else {
+            root.setAttribute('data-theme', value);
+        }
+        localStorage.setItem('kk_theme', value);
+    });
+
+    // Hero animation toggle
+    animToggle.addEventListener('change', () => {
+        if (animToggle.checked) {
+            hero.classList.add('animated');
+            localStorage.setItem('kk_anim', 'true');
+        } else {
+            hero.classList.remove('animated');
+            localStorage.setItem('kk_anim', 'false');
+        }
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.closest('.faq-item').classList.toggle('active');
+        });
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Form validation
+    const consultForm = document.getElementById('consultForm');
+    consultForm.addEventListener('submit', e => {
+        e.preventDefault();
+        let valid = true;
+        consultForm.querySelectorAll('[required]').forEach(input => {
+            const errorText = consultForm.querySelector(`.error-text[data-error-for="${input.id}"]`);
+            if (!input.value.trim()) {
+                input.classList.add('is-invalid');
+                if (errorText) errorText.style.display = 'block';
+                valid = false;
+            } else {
+                input.classList.remove('is-invalid');
+                if (errorText) errorText.style.display = 'none';
+            }
+        });
+
+        if (valid) {
+            alert('Form submitted successfully!');
+            consultForm.reset();
+        }
+    });
+</script>
+
+</html>
