@@ -1,11 +1,11 @@
 /* CSS Reset and Variables */
 :root {
-  --primary: #0b2e13;
-  --secondary: #2ea043;
-  --accent: #57d16b;
-  --light: #f4fbf6;
-  --dark: #142316;
-  --gray: #5f7665;
+  --primary: #0b2e13; /* Deep Green */
+  --secondary: #2ea043; /* Emerald */
+  --accent: #57d16b; /* Light Green */
+  --light: #f4fbf6; /* Light background */
+  --dark: #142316; /* Dark text */
+  --gray: #5f7665; /* Gray text */
   --transition: all 0.3s ease;
   --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.15);
@@ -72,7 +72,7 @@ ul {
 }
 
 .btn-accent:hover {
-  background: #0e2a53;
+  background: #0a3914;
 }
 
 .section-title {
@@ -714,7 +714,6 @@ footer {
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -725,7 +724,6 @@ footer {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -767,22 +765,22 @@ footer {
   .cta h2 {
     font-size: 2rem;
   }
-
+  
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-
+  
   .cta .btn {
     width: 100%;
     max-width: 300px;
     justify-content: center;
   }
-
+  
   .cta-stats {
     gap: 20px;
   }
-
+  
   .stat-number {
     font-size: 2rem;
   }
