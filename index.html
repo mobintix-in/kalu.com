@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="google-adsense-account" content="ca-pub-9563291311030793">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Kalu.com</title>
+    <title>Kalu.com - Digital Solutions That Drive Results</title>
     <link rel="icon" type="image/png" href="./assets/Mobintix.png" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9563291311030793" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,10 +15,13 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <a href="#home" class="logo">Kalu.com</a>
+            <a href="#home" class="logo">
+                <img src="./assets/Mobintix.png" alt="Kalu.com" class="logo-img">
+                <span>Kalu.com</span>
+            </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
@@ -55,6 +57,13 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>IT Consulting</h3>
+                    <p>Expert guidance on technology strategy, digital transformation, and IT infrastructure optimization.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Web Development</h3>
@@ -88,13 +97,6 @@
                     <h3>Digital Marketing</h3>
                     <p>SEO, social media marketing, and content strategies to grow your online presence and reach your audience.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>IT Consulting</h3>
-                    <p>Expert guidance on technology strategy, digital transformation, and IT infrastructure optimization.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -103,7 +105,7 @@
     <section id="about" class="features" style="padding-top: 0; background: var(--light);">
         <div class="container">
             <div class="section-title">
-                <h2>Why Choose Mobintix?</h2>
+                <h2>Why Choose Kalu.com?</h2>
                 <p>We combine technical excellence with business acumen to deliver solutions that matter</p>
             </div>
             <div class="features-grid">
@@ -136,7 +138,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "Mobintix transformed our online presence completely. The website they built is fast, beautiful, and has significantly increased our conversions."
+                        "Kalu.com transformed our online presence completely. The website they built is fast, beautiful, and has significantly increased our conversions."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">RP</div>
@@ -174,13 +176,47 @@
         </div>
     </section>
 
-    <!-- Contact CTA -->
+    <!-- Enhanced CTA Section -->
     <section id="contact" class="cta">
         <div class="container">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Let's discuss how we can help you achieve your digital goals</p>
-            <a href="mailto:mobintix@gmail.com" class="btn btn-accent">mobintix@gmail.com</a>
-            <div style="margin-top: 16px; color: rgba(255,255,255,0.9)">or call <a href="tel:+919409383803" style="text-decoration: underline; color: #fff;">+91 94093 83803</a></div>
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss how we can help you achieve your digital goals with cutting-edge solutions tailored to your needs.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:mobintix@gmail.com" class="btn">
+                        <i class="fas fa-envelope"></i>
+                        mobintix@gmail.com
+                    </a>
+                    <a href="mailto:mobintix@zohomail.in" class="btn">
+                        <i class="fas fa-envelope"></i>
+                        mobintix@zohomail.in
+                    </a>
+                </div>
+                
+                <div class="cta-contact-info">
+                    <span>or call</span>
+                    <a href="tel:+919409383803" class="phone-link">
+                        <i class="fas fa-phone-alt"></i>
+                        +91 94093 83803
+                    </a>
+                </div>
+                
+                <div class="cta-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -212,12 +248,12 @@
                         <label for="service">Service Interested In</label>
                         <select id="service" name="service" required>
                             <option value="">Select a service...</option>
+                            <option>IT Consulting</option>
                             <option>Web Development</option>
                             <option>Mobile App Development</option>
                             <option>Cloud Solutions</option>
                             <option>UI/UX Design</option>
                             <option>Digital Marketing</option>
-                            <option>IT Consulting</option>
                         </select>
                         <div class="error-text" data-error-for="service">Please select a practice area.</div>
                     </div>
@@ -282,22 +318,22 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#services">Web Development</a></li>
-                        <li><a href="#services">Mobile App Development</a></li>
-                        <li><a href="#services">Cloud Solutions</a></li>
-                        <li><a href="#services">UI/UX Design</a></li>
-                        <li><a href="#services">Digital Marketing</a></li>
-                        <li><a href="#services">IT Consulting</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> IT Consulting</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Mobile App Development</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Cloud Solutions</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Digital Marketing</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -306,6 +342,7 @@
                         <li><i class="fas fa-map-marker-alt"></i> 95 Mobintix, Krishna Residency Surat</li>
                         <li><i class="fas fa-phone"></i> +91 94093 83803</li>
                         <li><i class="fas fa-envelope"></i> mobintix@gmail.com</li>
+                        <li><i class="fas fa-envelope"></i> mobintix@zohomail.in</li>
                     </ul>
                 </div>
             </div>
