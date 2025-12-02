@@ -135,7 +135,7 @@ header.scrolled {
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: var(--primary);
+  color: var(--shadow);
   display: flex;
   align-items: center;
   gap: 10px;
