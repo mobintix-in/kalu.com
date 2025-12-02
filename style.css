@@ -135,14 +135,14 @@ header.scrolled {
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: var(--shadow);
+  color: var(--primary);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .logo-img {
-  height: 50px;
+  height: 40px;
   width: auto;
 }
 
