@@ -5,6 +5,7 @@
   --accent: #57d16b; /* Light Green */
   --light: #f4fbf6; /* Light background */
   --dark: #142316; /* Dark text */
+  --back: #000000; /* Black */
   --gray: #5f7665; /* Gray text */
   --transition: all 0.3s ease;
   --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -135,7 +136,7 @@ header.scrolled {
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: var(--primary);
+  color: var(--back);
   display: flex;
   align-items: center;
   gap: 10px;
