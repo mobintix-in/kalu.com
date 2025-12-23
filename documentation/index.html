@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Mobintix Infotech</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #064e3b;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+        }
+
+        .note {
+            background: #e6fffa;
+            border-left: 4px solid #064e3b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .toc {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 40px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Mobintix Infotech - IT Solutions Template Documentation</h1>
+    <p>Thank you for purchasing Mobintix Infotech. This documentation will guide you through installing and customizing
+        your new
+        template.</p>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#setup">1. Project Setup</a></li>
+            <li><a href="#preview">2. Template Preview</a></li>
+            <li><a href="#structure">3. File Structure & Details</a></li>
+            <li><a href="#customization">4. Customization (Colors & Fonts)</a></li>
+            <li><a href="#images">5. Changing Images</a></li>
+            <li><a href="#contact">6. Contact Form Setup</a></li>
+            <li><a href="#credits">7. Sources & Credits</a></li>
+        </ul>
+    </div>
+
+    <h2 id="setup">1. Project Setup</h2>
+    <p>Welcome to the Mobintix Infotech template. This is a clean, modern, and responsive HTML5/CSS3 template designed
+        for IT consulting firms and digital agencies.</p>
+
+    <h3>Prerequisites</h3>
+    <p>Since this is a static template, you don't need any complex backend environment. You only need:</p>
+    <ul>
+        <li>A text editor (VS Code, Sublime Text, etc.)</li>
+        <li>A modern web browser (Chrome, Firefox, Edge, Safari)</li>
+    </ul>
+
+    <h3>How to Run</h3>
+    <ol>
+        <li>Unzip the downloaded folder.</li>
+        <li>Right-click on <code>index.html</code> and select <strong>Open with</strong> > <strong>Google
+                Chrome</strong> (or your preferred browser).</li>
+        <li>For a better development experience, we recommend using the <strong>Live Server</strong> extension in VS
+            Code to view changes instantly.</li>
+    </ol>
+
+    <h2 id="preview">2. Template Preview</h2>
+    <p>Below is a full preview of the <strong>Mobintix Infotech</strong> template as it appears on desktop devices:</p>
+    <div
+        style="margin: 30px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <img src="../assets/website-preview.png" alt="Mobintix Infotech Website Preview"
+            style="width: 100%; display: block;">
+    </div>
+
+    <h2 id="structure">3. File Structure & Details</h2>
+    <p>Here is a detailed breakdown of the files included in your project:</p>
+    <div style="background: #f4f4f4; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 15px;">
+                <strong>📂 root/</strong>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li style="margin-bottom: 8px;"><code>index.html</code> - The main landing page. Contains the
+                        header, hero section, services grid, testimonials, and contact form.</li>
+                    <li style="margin-bottom: 8px;"><code>style.css</code> - The master stylesheet. Contains all CSS
+                        variables, global styles, and responsive rules.</li>
+                    <li style="margin-bottom: 8px;"><code>script.js</code> - Handles interactions like the mobile menu,
+                        sticky header, and form validation.</li>
+                    <li style="margin-bottom: 8px;"><code>404.html</code> - Custom error page for broken links.</li>
+                </ul>
+            </li>
+            <li style="margin-bottom: 15px;">
+                <strong>📂 assets/</strong>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li>Contains all static images, icons, and logos used in the template.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>📂 documentation/</strong>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li><code>index.html</code> - This documentation file.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2 id="customization">4. Customization</h2>
+
+    <h3>Changing Colors</h3>
+    <p>We use CSS Variables for easy color management. Open <code>style.css</code> and look for the <code>:root</code>
+        section at the top.</p>
+    <pre>
+:root {
+    --primary: #064e3b;      /* Main Brand Color */
+    --secondary: #10b981;    /* Hover/Accent Color */
+    --accent: #d1fae5;       /* Light Backgrounds */
+    ...
+}
+    </pre>
+    <p>Simply change these hex codes to match your brand identity.</p>
+
+    <h3>Changing Fonts</h3>
+    <p>Mobintix Infotech uses Google Fonts (Outfit & Inter). To change them:</p>
+    <ol>
+        <li>Go to <a href="https://fonts.google.com" target="_blank">Google Fonts</a> and select your desired font.</li>
+        <li>Update the <code>&lt;link&gt;</code> tag in <code>index.html</code> (head section).</li>
+        <li>Update the font variables in <code>style.css</code>:
+            <pre>--font-heading: 'YourFont', sans-serif;</pre>
+        </li>
+    </ol>
+
+    <h2 id="images">5. Changing Images</h2>
+    <p>All images used in the template are placeholders. Replace them by dropping new images into the
+        <code>assets/</code> folder and updating the <code>src</code> attributes in the HTML.
+    </p>
+    <p class="note"><strong>Tip:</strong> For best results, use compressed, WebP, or optimized JPG images.</p>
+
+    <h2 id="contact">6. Contact Form</h2>
+    <p>The contact form is frontend-only by default. To make it functional, you will need a backend endpoint or a
+        service like Formspree.</p>
+    <p>Example using Formspree:</p>
+    <pre>
+&lt;form action="https://formspree.io/f/yourformid" method="POST"&gt;
+    ...
+&lt;/form&gt;
+    </pre>
+
+    <h2 id="credits">7. Sources & Credits</h2>
+    <ul>
+        <li><strong>Icons:</strong> Font Awesome 6 (Free)</li>
+        <li><strong>Fonts:</strong> Google Fonts</li>
+        <li><strong>Images:</strong> Unsplash (Placeholders)</li>
+    </ul>
+
+    <hr>
+    <p>&copy; 2025 Mobintix Infotech Template. All Rights Reserved.</p>
+
+</body>
+
+</html>
