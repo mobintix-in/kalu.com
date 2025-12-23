@@ -85,7 +85,18 @@ consultForm.addEventListener('submit', (e) => {
     
     if (isValid) {
         // Form submission logic would go here
-        alert('Thank you for your request! We will contact you shortly.');
+        
+        // Hide form and show success message
+        consultForm.style.display = 'none';
+        
+        const successMessage = document.getElementById('formSuccessMessage');
+        if (successMessage) {
+            successMessage.style.display = 'block';
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
         consultForm.reset();
     }
 });

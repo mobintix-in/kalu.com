@@ -794,3 +794,30 @@ footer {
     height: 50px;
   }
 }
+
+/* Success Message */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.5s ease;
+}
+
+.success-message i {
+  font-size: 48px;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.success-message h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.success-message p {
+  color: var(--gray);
+}
