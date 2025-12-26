@@ -15,7 +15,7 @@
         content="Innovative technology services for modern businesses. We deliver cutting-edge web development, mobile apps, cloud solutions, and digital transformation strategies tailored to your success.">
     <meta name="keywords"
         content="web development, mobile app development, digital solutions, IT consulting, cloud solutions, UI/UX design, digital marketing, software development, technology services">
-    <meta name="author" content="Infotech">
+    <meta name="author" content="Theme Author">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="googlebot" content="index, follow">
 
@@ -28,7 +28,7 @@
     <meta property="og:title" content="Infotech - Digital Solutions That Drive Results">
     <meta property="og:description"
         content="Innovative technology services for modern businesses. We deliver cutting-edge web development, mobile apps, cloud solutions, and digital transformation strategies.">
-    <meta property="og:image" content="./assets/logo.png">
+    <meta property="og:image" content="./assets/preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Infotech - Digital Solutions">
@@ -41,7 +41,7 @@
     <meta name="twitter:title" content="Infotech - Digital Solutions That Drive Results">
     <meta name="twitter:description"
         content="Innovative technology services for modern businesses. We deliver cutting-edge web development, mobile apps, cloud solutions, and digital transformation strategies.">
-    <meta name="twitter:image" content="./assets/logo.png">
+    <meta name="twitter:image" content="./assets/preview.jpg">
     <meta name="twitter:image:alt" content="Infotech Logo">
     <meta name="twitter:creator" content="@infotech">
     <meta name="twitter:site" content="@infotech">
@@ -64,15 +64,15 @@
         "description": "Innovative technology services for modern businesses providing web development, mobile apps, cloud solutions, and digital transformation strategies.",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "123 Innovation Dr",
-            "addressLocality": "Tech City",
+            "streetAddress": "Sample Street",
+            "addressLocality": "Sample City",
             "addressRegion": "State",
-            "postalCode": "90210",
+            "postalCode": "00000",
             "addressCountry": "US"
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+1-555-123-4567",
+            "telephone": "+1-000-000-0000",
             "contactType": "customer service",
             "email": "contact@example.com",
             "availableLanguage": ["English"]
@@ -133,7 +133,7 @@
         <div class="container header-content">
             <a href="#home" class="logo">
                 <img src="./assets/logo.svg" alt="Infotech" class="logo-img">
-                <span>Infotech</span>
+                <!-- <span>Infotech</span> -->
             </a>
             <nav>
                 <ul class="nav-links">
@@ -228,50 +228,45 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="about-section" style="padding: 100px 0; background: var(--bg-surface);">
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="about-content-wrapper" style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
-                <div class="about-text" style="flex: 1; min-width: 300px;">
-                    <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+            <div class="about-content-wrapper">
+                <div class="about-text">
+                    <div class="section-title">
                         <h2>Who We Are</h2>
-                        <p style="margin: 0;">Driving digital transformation through innovation</p>
+                        <p>Driving digital transformation through innovation</p>
                     </div>
-                    <p style="font-size: 1.1rem; color: var(--gray); margin-bottom: 20px; line-height: 1.8;">
+                    <p class="about-desc">
                         Infotech began with a simple vision: to bridge the gap between complex technology and
                         business
                         success. We started as a boutique web development firm delivering
                         high-quality custom websites.
                     </p>
-                    <p style="font-size: 1.1rem; color: var(--gray); line-height: 1.8; margin-bottom: 30px;">
+                    <p class="about-desc-secondary">
                         Today, we specialize not just in web development, but also in mobile apps, cloud infrastructure,
                         and
                         strategic digital marketing. We believe in building long-term partnerships. We don't just write
                         code; we
                         solve problems.
                     </p>
-                    <div class="about-stats" style="display: flex; gap: 40px; margin-bottom: 30px;">
+                    <div class="about-stats">
                         <div>
-                            <h3 style="font-size: 2rem; color: var(--primary); margin-bottom: 5px;">5+</h3>
-                            <p style="color: var(--gray); font-size: 0.9rem;">Years Experience</p>
+                            <h3 class="about-stat-number">5+</h3>
+                            <p class="about-stat-label">Years Experience</p>
                         </div>
                         <div>
-                            <h3 style="font-size: 2rem; color: var(--primary); margin-bottom: 5px;">150+</h3>
-                            <p style="color: var(--gray); font-size: 0.9rem;">Projects Done</p>
+                            <h3 class="about-stat-number">150+</h3>
+                            <p class="about-stat-label">Projects Done</p>
                         </div>
                     </div>
                     <a href="#contact" class="btn">Get in Touch</a>
                 </div>
-                <div class="about-image" style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-                    <div
-                        style="position: relative; width: 100%; max-width: 500px; aspect-ratio: 4/3; background: #f0f0f0; border-radius: 20px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                        <img src="./assets/logo.png" alt="About Infotech"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                        <div
-                            style="position: absolute; bottom: 20px; left: 20px; background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 15px; box-shadow: var(--shadow); width: 200px; backdrop-filter: blur(5px);">
-                            <!-- Hidden on mobile via CSS usually, but inline for now -->
-                            <p style="font-weight: bold; color: var(--primary); margin-bottom: 5px;">Our Mission</p>
-                            <p style="font-size: 0.9rem; color: var(--gray);">Empowering businesses with digital
-                                excellence.</p>
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <img src="./assets/logo.svg" alt="About Infotech" class="about-img">
+                        <div class="about-mission-box">
+                            <p class="about-mission-title">Our Mission</p>
+                            <p class="about-mission-text">Empowering businesses with digital excellence.</p>
                         </div>
                     </div>
                 </div>
@@ -325,7 +320,7 @@
                     <div class="testimonial-author">
                         <div class="author-avatar">RP</div>
                         <div>
-                            <h4>Rajesh Patel</h4>
+                            <h4>Rajesh P.</h4>
                             <p>CEO, RetailPro</p>
                         </div>
                     </div>
@@ -338,7 +333,7 @@
                     <div class="testimonial-author">
                         <div class="author-avatar">PS</div>
                         <div>
-                            <h4>Priya Shah</h4>
+                            <h4>Priya S.</h4>
                             <p>Founder, FitLife App</p>
                         </div>
                     </div>
@@ -351,7 +346,7 @@
                     <div class="testimonial-author">
                         <div class="author-avatar">AM</div>
                         <div>
-                            <h4>Anil Mehta</h4>
+                            <h4>Anil M.</h4>
                             <p>CTO, TechVentures</p>
                         </div>
                     </div>
