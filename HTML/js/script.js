@@ -263,6 +263,22 @@ const colorThemes = {
     orange: {
         light: { primary: '#431407', secondary: '#ea580c', accent: '#fb923c' },
         dark: { primary: '#fb923c', secondary: '#ea580c', accent: '#431407' }
+    },
+    red: {
+        light: { primary: '#450a0a', secondary: '#dc2626', accent: '#f87171' },
+        dark: { primary: '#f87171', secondary: '#dc2626', accent: '#450a0a' }
+    },
+    teal: {
+        light: { primary: '#042f2e', secondary: '#0d9488', accent: '#2dd4bf' },
+        dark: { primary: '#2dd4bf', secondary: '#0d9488', accent: '#042f2e' }
+    },
+    pink: {
+        light: { primary: '#500724', secondary: '#db2777', accent: '#f472b6' },
+        dark: { primary: '#f472b6', secondary: '#db2777', accent: '#500724' }
+    },
+    yellow: {
+        light: { primary: '#422006', secondary: '#ca8a04', accent: '#facc15' },
+        dark: { primary: '#facc15', secondary: '#ca8a04', accent: '#422006' }
     }
 };
 
