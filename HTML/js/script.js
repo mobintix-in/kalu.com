@@ -241,3 +241,94 @@ if (themeToggleBtn && body) {
         }
     });
 }
+
+// Color Switcher Logic
+const switcherToggle = document.getElementById('switcherToggle');
+const colorSwitcher = document.getElementById('colorSwitcher');
+const colorOptions = document.querySelectorAll('.color-opt');
+
+const colorThemes = {
+    green: {
+        light: { primary: '#0b2e13', secondary: '#2ea043', accent: '#57d16b' },
+        dark: { primary: '#57d16b', secondary: '#2ea043', accent: '#0b2e13' }
+    },
+    blue: {
+        light: { primary: '#0f2c4c', secondary: '#2563eb', accent: '#60a5fa' },
+        dark: { primary: '#60a5fa', secondary: '#2563eb', accent: '#0f2c4c' }
+    },
+    purple: {
+        light: { primary: '#2e1065', secondary: '#7c3aed', accent: '#a78bfa' },
+        dark: { primary: '#a78bfa', secondary: '#7c3aed', accent: '#2e1065' }
+    },
+    orange: {
+        light: { primary: '#431407', secondary: '#ea580c', accent: '#fb923c' },
+        dark: { primary: '#fb923c', secondary: '#ea580c', accent: '#431407' }
+    }
+};
+
+function getCurrentTheme() {
+    return localStorage.getItem('selected-color-theme') || 'green';
+}
+
+function applyTheme(themeName) {
+    const isDark = document.body.classList.contains('dark-mode');
+    const mode = isDark ? 'dark' : 'light';
+    const theme = colorThemes[themeName][mode];
+    
+    if (!theme) return;
+
+    // Apply to body to override CSS class definitions
+    const target = document.body; 
+    target.style.setProperty('--primary', theme.primary);
+    target.style.setProperty('--secondary', theme.secondary);
+    target.style.setProperty('--accent', theme.accent);
+}
+
+if (switcherToggle && colorSwitcher) {
+    switcherToggle.addEventListener('click', () => {
+        colorSwitcher.classList.toggle('active');
+    });
+
+    // Close switcher when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!colorSwitcher.contains(e.target) && colorSwitcher.classList.contains('active')) {
+            colorSwitcher.classList.remove('active');
+        }
+    });
+
+    // Theme Selection
+    colorOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const theme = option.getAttribute('data-theme');
+            // Save preference
+            localStorage.setItem('selected-color-theme', theme);
+            applyTheme(theme);
+            
+            // Update active state
+            colorOptions.forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+        });
+    });
+
+    // Initial Load
+    const savedTheme = getCurrentTheme();
+    applyTheme(savedTheme);
+    
+    // Set active button
+    const activeBtn = document.querySelector(`.color-opt[data-theme="${savedTheme}"]`);
+    if (activeBtn) {
+        colorOptions.forEach(opt => opt.classList.remove('active'));
+        activeBtn.classList.add('active');
+    }
+}
+
+// Hook into the existing Dark Mode Toggle
+// We need to re-apply the theme when dark mode changes
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        // Small delay to ensure class toggle has happened
+        setTimeout(() => {
+            applyTheme(getCurrentTheme());
+        }, 10);
+    });
+}

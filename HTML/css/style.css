@@ -1228,3 +1228,106 @@ body.dark-mode .error-title {
     animation: float 3s ease-in-out infinite;
 }
 
+/* Color Switcher */
+.color-switcher {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1001;
+    display: flex;
+    align-items: flex-start;
+}
+
+.switcher-btn {
+    background: var(--bg-surface);
+    color: var(--dark);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.switcher-btn:hover {
+    background: var(--light);
+}
+
+.switcher-btn i {
+    animation: spin 4s linear infinite;
+    color: var(--secondary);
+}
+
+.switcher-panel {
+    background: var(--bg-surface);
+    padding: 20px;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 0 8px;
+    width: 200px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.color-switcher.active .switcher-panel {
+    transform: translateX(0);
+    position: static;
+    border-radius: 0 0 0 8px;
+}
+
+.color-switcher.active .switcher-btn {
+    border-radius: 8px 0 0 0;
+    background: var(--secondary);
+    color: white;
+}
+
+.color-switcher.active .switcher-btn i {
+    color: white;
+}
+
+.switcher-panel h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: var(--dark);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.color-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.color-opt {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.color-opt:hover {
+    transform: scale(1.1);
+}
+
+.color-opt.active {
+    border-color: var(--dark);
+    box-shadow: 0 0 0 2px var(--bg-surface), 0 0 0 3px var(--dark);
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
