@@ -1038,6 +1038,7 @@ body.dark-mode .theme-toggle-btn:hover {
         margin-right: 15px;
     }
 }
+
 /* =====================
    404 Page Styles
 ===================== */
@@ -1216,9 +1217,12 @@ body.dark-mode .error-title {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-20px);
     }
@@ -1330,4 +1334,3 @@ body.dark-mode .error-title {
         transform: rotate(360deg);
     }
 }
-
