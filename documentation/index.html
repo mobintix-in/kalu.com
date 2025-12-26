@@ -370,8 +370,8 @@
                         Mode)</span></li>
                 <li><strong>📂 assets/</strong>
                     <ul style="padding-left: 20px;">
-                        <li>🖼️ logo.png, logo-light.png</li>
-                        <li>🖼️ hero-bg.jpg</li>
+                        <li>🖼️ logo.png</li>
+                        <li>🖼️ Mobintix.png</li>
                         <li>... other images</li>
                     </ul>
                 </li>
@@ -438,17 +438,39 @@ body.dark-mode {
             filenames (e.g., <code>logo.png</code>) to avoid changing HTML paths, or update the HTML <code>src</code>
             attributes to match your new files.</p>
 
-        <h2 id="contact">7. Contact Form</h2>
-        <p>The form at the bottom of the page is a UI template. To make it send emails, we recommend using a service
-            like <strong>Formspree</strong> to avoid needing backend code.</p>
-        <p><strong>Setup Steps:</strong></p>
+        <h2 id="contact">7. Contact Form Functionality</h2>
+        <p>The template comes with a <strong>fully functional contact form</strong> pre-configured to send emails
+            without any backend code, using <strong>FormSubmit.co</strong> via AJAX.</p>
+
+        <h3>How it Works</h3>
+        <ul>
+            <li><strong>No Page Reload:</strong> The form submits asynchronously (AJAX), offering a smooth user
+                experience.</li>
+            <li><strong>Instant Feedback:</strong> The button changes to "Sending...", and a success message appears
+                inline upon completion.</li>
+            <li><strong>Spam Protection:</strong> The integration handles basic spam filtering automatically.</li>
+        </ul>
+
+        <div class="note">
+            <div>
+                <strong>⚠️ CRITICAL: First-Time Activation</strong><br>
+                When you (or a visitor) submit the form for the very first time, <strong>FormSubmit</strong> will send
+                an <strong>Activation Email</strong> to <code>your-email@example.com</code>.<br><br>
+                You <strong>MUST</strong> click the <strong>"Activate Form"</strong> button in that email. Once
+                activated, all future submissions will land directly in your inbox instantly.
+            </div>
+        </div>
+
+        <h3>Changing the Recipient Email</h3>
+        <p>To send inquiries to a different email address:</p>
         <ol>
-            <li>Register at <a href="https://formspree.io" target="_blank">Formspree.io</a> and create a new form.</li>
-            <li>Copy your unique endpoint URL.</li>
-            <li>Update your HTML form tag:</li>
+            <li>Open <code>script.js</code> in your code editor.</li>
+            <li>Locate the <code>fetch</code> URL (around line 98):
+                <pre>fetch("https://formsubmit.co/ajax/YOUR_EMAIL@gmail.com", { ...</pre>
+            </li>
+            <li>Replace <code>mobintix@gmail.com</code> with your preferred email address.</li>
+            <li>Submit the form once yourself to trigger the new activation email.</li>
         </ol>
-        <pre>
-&lt;form action="https://formspree.io/f/YOUR_ID_HERE" method="POST"&gt;</pre>
 
         <h2 id="credits">8. Sources & Credits</h2>
         <ul>

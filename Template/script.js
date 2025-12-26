@@ -84,20 +84,50 @@ consultForm.addEventListener('submit', (e) => {
     });
     
     if (isValid) {
-        // Form submission logic would go here
+        // Show loading state
+        const submitBtn = consultForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = 'Sending...';
+        submitBtn.disabled = true;
+
+        // Prepare data for FormSubmit
+        const formData = new FormData(consultForm);
+        const object = {};
+        formData.forEach((value, key) => object[key] = value);
         
-        // Hide form and show success message
-        consultForm.style.display = 'none';
-        
-        const successMessage = document.getElementById('formSuccessMessage');
-        if (successMessage) {
-            successMessage.style.display = 'block';
+        // Add subject line
+        object['_subject'] = 'New Inquiry from Mobintix Website';
+
+        fetch("https://formsubmit.co/ajax/YOUR_EMAIL@gmail.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(object)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Hide form and show success message
+            consultForm.style.display = 'none';
             
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        
-        consultForm.reset();
+            const successMessage = document.getElementById('formSuccessMessage');
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            consultForm.reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            submitBtn.innerText = 'Error! Try Again';
+            setTimeout(() => {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }, 3000);
+            alert('Something went wrong. Please try again or contact us directly via email.');
+        });
     }
 });
 
