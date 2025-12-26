@@ -13,12 +13,19 @@
 
     <style>
         :root {
-            --primary: #064e3b;
-            --secondary: #10b981;
-            --accent: #ecfdf5;
-            --text-main: #1f2937;
-            --text-muted: #6b7280;
-            --bg-body: #f8fafc;
+            /* Brand Colors matching Main Website */
+            --primary: #0b2e13;
+            /* Deep Green */
+            --secondary: #2ea043;
+            /* Emerald */
+            --accent: #57d16b;
+            /* Light Green */
+            --light: #f4fbf6;
+            /* Light background */
+            --dark: #142316;
+            /* Dark text */
+
+            --bg-body: var(--light);
             --bg-card: #ffffff;
             --border: #e2e8f0;
             --code-bg: #1e293b;
@@ -28,16 +35,17 @@
         body {
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.7;
-            color: var(--text-main);
+            color: var(--dark);
             background-color: var(--bg-body);
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
 
         /* Typography */
@@ -47,39 +55,50 @@
         h4 {
             font-family: 'Outfit', sans-serif;
             color: var(--primary);
-            margin-top: 2.5em;
-            margin-bottom: 0.8em;
+            margin-top: 1.5em;
+            margin-bottom: 0.6em;
             line-height: 1.2;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-top: 0;
-            border-bottom: 3px solid var(--secondary);
-            padding-bottom: 20px;
-            display: inline-block;
+            margin-bottom: 0.5em;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 6px;
+            background: var(--secondary);
+            margin-top: 15px;
+            border-radius: 3px;
         }
 
         h2 {
-            font-size: 1.8rem;
-            border-left: 5px solid var(--secondary);
-            padding-left: 15px;
+            font-size: 2rem;
+            margin-top: 60px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(46, 160, 67, 0.1);
         }
 
         h3 {
-            font-size: 1.4rem;
-            color: #2d3748;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 600;
         }
 
         p {
             margin-bottom: 1.5em;
-            color: #374151;
+            color: #4b5563;
         }
 
         a {
             color: var(--secondary);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.2s;
         }
 
@@ -88,71 +107,114 @@
             text-decoration: underline;
         }
 
+        /* Intro */
+        .intro {
+            font-size: 1.2rem;
+            color: var(--dark);
+            max-width: 700px;
+        }
+
         /* TOC */
         .toc {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            border: 1px solid var(--border);
-            margin: 40px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(11, 46, 19, 0.05);
+            border: 1px solid rgba(46, 160, 67, 0.1);
+            margin: 50px 0;
         }
 
         .toc h3 {
             margin-top: 0;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--primary);
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            border-bottom: none;
         }
 
         .toc ul {
             list-style: none;
             padding-left: 0;
             margin: 0;
-        }
-
-        .toc li {
-            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
         }
 
         .toc a {
-            display: block;
-            padding: 8px 12px;
-            border-radius: 6px;
-            color: var(--text-main);
-            transform: translateX(0);
-            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: var(--dark);
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid transparent;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .toc a::before {
+            content: '→';
+            color: var(--secondary);
+            margin-right: 10px;
+            opacity: 0;
+            transform: translateX(-5px);
+            transition: all 0.3s ease;
         }
 
         .toc a:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: translateX(5px);
-            text-decoration: none;
+            background: #fff;
+            color: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 160, 67, 0.1);
+        }
+
+        .toc a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         /* Code Blocks */
         pre {
             background: var(--code-bg);
             color: var(--code-text);
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 12px;
             overflow-x: auto;
             font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 0.9em;
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 0.95em;
+            margin: 25px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid #334155;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'CODE';
+            position: absolute;
+            top: 0;
+            right: 20px;
+            background: #334155;
+            color: #94a3b8;
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 0 0 4px 4px;
+            font-weight: bold;
         }
 
         code {
-            background: #e2e8f0;
+            background: rgba(46, 160, 67, 0.1);
             padding: 2px 6px;
             border-radius: 4px;
             font-family: monospace;
             font-size: 0.9em;
-            color: #d02525;
+            color: var(--primary);
+            font-weight: 600;
         }
 
         pre code {
@@ -160,47 +222,92 @@
             color: inherit;
             padding: 0;
             font-size: inherit;
+            font-weight: normal;
         }
 
         /* Components */
         .note {
-            background: var(--accent);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
+            background: #eefcf3;
+            border-left: 5px solid var(--secondary);
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
             margin: 30px 0;
+            display: flex;
+            gap: 15px;
+            align-items: start;
+        }
+
+        .note::before {
+            content: '💡';
+            font-size: 1.5rem;
         }
 
         .note strong {
             color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
         }
 
         .file-tree {
             background: #fff;
-            padding: 25px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 12px;
             border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            font-family: monospace;
+        }
+
+        .file-tree ul {
+            padding-left: 20px;
         }
 
         .preview-box {
             background: white;
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--border);
-            margin: 30px 0;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .preview-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+
+        .preview-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         hr {
             border: 0;
             border-top: 1px solid var(--border);
-            margin: 60px 0;
+            margin: 80px 0;
         }
 
         .footer {
             text-align: center;
-            color: var(--text-muted);
+            color: #9cb0a2;
             font-size: 0.9rem;
+            padding-bottom: 40px;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -208,133 +315,149 @@
 <body>
 
     <div class="container">
-        <h1>Mobintix Infotech - IT Solutions Template Documentation</h1>
-        <p class="intro">Thank you for purchasing the Mobintix Infotech template. This comprehensive guide will help you
-            install, customize, and launch your new website.</p>
+        <h1>Mobintix Infotech <br><span style="font-size: 0.6em; color: var(--secondary);">Documentation</span></h1>
+        <p class="intro">Welcome to the official documentation for the Mobintix Infotech template. This comprehensive
+            guide will assist you in installing, customizing, and launching your digital agency website.</p>
 
         <div class="toc">
             <h3>Table of Contents</h3>
             <ul>
-                <li><a href="#setup">1. Project Setup</a></li>
-                <li><a href="#preview">2. Template Preview</a></li>
-                <li><a href="#structure">3. File Structure & Details</a></li>
-                <li><a href="#customization">4. Customization (Colors & Fonts)</a></li>
-                <li><a href="#images">5. Changing Images</a></li>
-                <li><a href="#contact">6. Contact Form Setup</a></li>
-                <li><a href="#credits">7. Sources & Credits</a></li>
+                <li><a href="#setup">Project Setup</a></li>
+                <li><a href="#structure">File Structure</a></li>
+                <li><a href="#preview">Website Preview</a></li>
+                <li><a href="#darkmode">Dark Mode Setup</a></li>
+                <li><a href="#customization">Customization</a></li>
+                <li><a href="#images">Changing Images</a></li>
+                <li><a href="#contact">Contact Form</a></li>
+                <li><a href="#credits">Credits</a></li>
             </ul>
         </div>
 
         <h2 id="setup">1. Project Setup</h2>
-        <p>Welcome to the Mobintix Infotech template. This is a clean, modern, and responsive HTML5/CSS3 template
-            designed for IT consulting firms and digital agencies.</p>
+        <p>This is a high-performance, static HTML5/CSS3 template designed for modern IT businesses options. No complex
+            build tools are required to get started.</p>
 
         <h3>Prerequisites</h3>
-        <p>Since this is a static template, you don't need any complex backend environment. You only need:</p>
         <ul>
-            <li>A text editor (VS Code, Sublime Text, etc.)</li>
+            <li>A code editor (VS Code, Sublime Text, etc.)</li>
             <li>A modern web browser (Chrome, Firefox, Edge, Safari)</li>
         </ul>
 
-        <h3>How to Run</h3>
+        <h3>Installation</h3>
+        <p>Since no build process is strictly necessary, you can run the files directly:</p>
         <ol>
-            <li>Unzip the downloaded folder.</li>
-            <li>Right-click on <code>index.html</code> and select <strong>Open with</strong> > <strong>Google
-                    Chrome</strong>.</li>
-            <li>For a better experience, we recommend using the <strong>Live Server</strong> extension in VS Code.</li>
+            <li>Unzip the <code>Mobintix_Theme.zip</code> file.</li>
+            <li>Right-click on <code>index.html</code> in the <code>Template</code> folder.</li>
+            <li>Select <strong>Open with</strong> > <strong>Your Preferred Browser</strong>.</li>
         </ol>
-
-        <h2 id="preview">2. Template Preview</h2>
-        <p>Below is a full preview of the <strong>Mobintix Infotech</strong> template as it appears on desktop devices:
-        </p>
-        <div class="preview-box">
-            <img src="assets/website-preview.png" alt="Mobintix Infotech Website Preview"
-                style="width: 100%; display: block; border-radius: 8px;">
+        <div class="note">
+            <div>
+                <strong>Pro Tip:</strong>
+                For the best development experience, use the "Live Server" extension in VS Code. It auto-reloads the
+                page as you save changes.
+            </div>
         </div>
 
-        <h2 id="structure">3. File Structure & Details</h2>
-        <p>Here is a detailed breakdown of the files included in your project:</p>
+        <h2 id="structure">2. File Structure</h2>
+        <p>The project uses a clean and intuitive file structure:</p>
         <div class="file-tree">
-            <ul style="list-style-type: none; padding-left: 0;">
-                <li style="margin-bottom: 15px;">
-                    <strong>📂 root/</strong>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li style="margin-bottom: 8px;"><code>index.html</code> - The main landing page. Contains the
-                            header, hero section, services grid, testimonials, and contact form.</li>
-                        <li style="margin-bottom: 8px;"><code>style.css</code> - The master stylesheet. Contains all CSS
-                            variables, global styles, and responsive rules.</li>
-                        <li style="margin-bottom: 8px;"><code>script.js</code> - Handles interactions like the mobile
-                            menu, sticky header, and form validation.</li>
-                        <li style="margin-bottom: 8px;"><code>404.html</code> - Custom error page for broken links.</li>
-                    </ul>
-                </li>
-                <li style="margin-bottom: 15px;">
-                    <strong>📂 assets/</strong>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li>Contains all static images, icons, and logos used in the template.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>📂 documentation/</strong>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li><code>index.html</code> - This documentation file.</li>
+            <strong>📂 Template/</strong>
+            <ul style="list-style-type: none; padding-left: 20px; line-height: 1.8;">
+                <li>📄 <code>index.html</code> <span style="color: #888;">// Main Landing Page</span></li>
+                <li>📄 <code>404.html</code> <span style="color: #888;">// Error Page</span></li>
+                <li>📄 <code>style.css</code> <span style="color: #888;">// Global Styles & Theme Variables</span></li>
+                <li>📄 <code>script.js</code> <span style="color: #888;">// UI Logic (Menu, Sticky Header, Dark
+                        Mode)</span></li>
+                <li><strong>📂 assets/</strong>
+                    <ul style="padding-left: 20px;">
+                        <li>🖼️ logo.png, logo-light.png</li>
+                        <li>🖼️ hero-bg.jpg</li>
+                        <li>... other images</li>
                     </ul>
                 </li>
             </ul>
         </div>
 
-        <h2 id="customization">4. Customization</h2>
+        <h2 id="preview">3. Template Preview</h2>
+        <p>Visualize the dual-theme capability of the Mobintix Infotech template.</p>
 
-        <h3>Changing Colors</h3>
-        <p>We use CSS Variables for easy color management. Open <code>style.css</code> and look for the
-            <code>:root</code> section at the top.
-        </p>
+        <div class="preview-box">
+            <span class="preview-label">Light Mode</span>
+            <img src="assets/white mode.jpeg" alt="Light Mode Preview">
+
+            <span class="preview-label" style="background: #121212; margin-top: 20px;">Dark Mode</span>
+            <img src="assets/dark mode.jpeg" alt="Dark Mode Preview">
+        </div>
+
+        <h2 id="darkmode">4. Dark Mode Setup</h2>
+        <p>The template features a robust dark mode implementation that respects user preference and saves state.</p>
+
+        <h3>How it Works</h3>
+        <ul>
+            <li><strong>Auto-save:</strong> The script uses <code>localStorage</code> to remember if the user prefers
+                'dark' or 'light' theme.</li>
+            <li><strong>Toggle:</strong> The moon/sun icon in the navbar toggles the <code>.dark-mode</code> class on
+                the <code>&lt;body&gt;</code> tag.</li>
+        </ul>
+
+        <h3>Customizing Colors</h3>
+        <p>Dark mode colors are defined separately in <code>style.css</code>. To modify them, find this block:</p>
+        <pre>
+body.dark-mode {
+    --primary: #57d16b;       /* Neon Green Accent */
+    --light: #121212;         /* Dark Background */
+    --bg-surface: #1e1e1e;    /* Card Backgrounds */
+    --header-bg: rgba(18, 18, 18, 0.95);
+}</pre>
+
+        <h2 id="customization">5. Customization</h2>
+
+        <h3>Global Colors</h3>
+        <p>The template uses CSS Custom Properties (Variables) for global color management. Edit the <code>:root</code>
+            selector at the top of <code>style.css</code>:</p>
         <pre>
 :root {
-    --primary: #064e3b;      /* Main Brand Color */
-    --secondary: #10b981;    /* Hover/Accent Color */
-    --accent: #d1fae5;       /* Light Backgrounds */
-    ...
+    --primary: #0b2e13;      /* Core Brand Color (Dark Green) */
+    --secondary: #2ea043;    /* Primary Action Color (Emerald) */
+    --accent: #57d16b;       /* Highlights */
+    --light: #f4fbf6;        /* Page Background */
 }</pre>
-        <p>Simply change these hex codes to match your brand identity.</p>
 
-        <h3>Changing Fonts</h3>
-        <p>Mobintix Infotech uses Google Fonts (Outfit & Inter). To change them:</p>
+        <h3>Fonts</h3>
+        <p>We use <strong>Outfit</strong> for headings and <strong>Inter</strong> for body text via Google Fonts.</p>
         <ol>
-            <li>Go to <a href="https://fonts.google.com" target="_blank">Google Fonts</a> and select your desired font.
-            </li>
-            <li>Update the <code>&lt;link&gt;</code> tag in <code>index.html</code> (head section).</li>
-            <li>Update the font variables in <code>style.css</code>:
+            <li>Select your new font on <a href="https://fonts.google.com" target="_blank">fonts.google.com</a>.</li>
+            <li>Replace the <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> of your HTML files.</li>
+            <li>Update the CSS variables:
                 <pre>--font-heading: 'YourFont', sans-serif;</pre>
             </li>
         </ol>
 
-        <h2 id="images">5. Changing Images</h2>
-        <p>All images used in the template are placeholders. Replace them by dropping new images into the
-            <code>assets/</code> folder and updating the <code>src</code> attributes in the HTML.
-        </p>
-        <div class="note">
-            <strong>Tip:</strong> For best results, use compressed, WebP, or optimized JPG images.
-        </div>
+        <h2 id="images">6. Changing Images</h2>
+        <p>Replace existing placeholder images in the <code>assets/</code> folder with your own. Ensure you keep similar
+            filenames (e.g., <code>logo.png</code>) to avoid changing HTML paths, or update the HTML <code>src</code>
+            attributes to match your new files.</p>
 
-        <h2 id="contact">6. Contact Form</h2>
-        <p>The contact form is frontend-only by default. To make it functional, you will need a backend endpoint or a
-            service like Formspree.</p>
-        <p>Example using Formspree:</p>
+        <h2 id="contact">7. Contact Form</h2>
+        <p>The form at the bottom of the page is a UI template. To make it send emails, we recommend using a service
+            like <strong>Formspree</strong> to avoid needing backend code.</p>
+        <p><strong>Setup Steps:</strong></p>
+        <ol>
+            <li>Register at <a href="https://formspree.io" target="_blank">Formspree.io</a> and create a new form.</li>
+            <li>Copy your unique endpoint URL.</li>
+            <li>Update your HTML form tag:</li>
+        </ol>
         <pre>
-&lt;form action="https://formspree.io/f/yourformid" method="POST"&gt;
-    ...
-&lt;/form&gt;</pre>
+&lt;form action="https://formspree.io/f/YOUR_ID_HERE" method="POST"&gt;</pre>
 
-        <h2 id="credits">7. Sources & Credits</h2>
+        <h2 id="credits">8. Sources & Credits</h2>
         <ul>
-            <li><strong>Icons:</strong> Font Awesome 6 (Free)</li>
-            <li><strong>Fonts:</strong> Google Fonts</li>
-            <li><strong>Images:</strong> Unsplash (Placeholders)</li>
+            <li><strong>Icons:</strong> <a href="https://fontawesome.com">FontAwesome 6 Free</a></li>
+            <li><strong>Fonts:</strong> <a href="https://fonts.google.com">Google Fonts</a></li>
         </ul>
 
         <hr>
-        <p class="footer">&copy; 2025 Mobintix Infotech Template. All Rights Reserved.</p>
+        <p class="footer">&copy; 2025 Mobintix Infotech. Designed & Developed for Excellence.</p>
     </div>
 
 </body>

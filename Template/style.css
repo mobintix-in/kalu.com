@@ -14,6 +14,10 @@
     /* Black */
     --gray: #5f7665;
     /* Gray text */
+    --bg-surface: #ffffff;
+    /* Surface background */
+    --header-bg: rgba(255, 255, 255, 0.98);
+    /* Header background */
     --transition: all 0.3s ease;
     --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.15);
@@ -122,7 +126,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--header-bg);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
     transition: var(--transition);
@@ -249,7 +253,7 @@ header.scrolled {
 }
 
 .feature-card {
-    background: white;
+    background: var(--bg-surface);
     padding: 40px 30px;
     border-radius: 20px;
     box-shadow: var(--shadow);
@@ -321,7 +325,7 @@ header.scrolled {
 }
 
 .testimonial-card {
-    background: white;
+    background: var(--bg-surface);
     padding: 30px;
     border-radius: 20px;
     box-shadow: var(--shadow);
@@ -513,7 +517,7 @@ header.scrolled {
     padding: 14px 16px;
     border: 1px solid #e2e2e2;
     border-radius: 10px;
-    background: #fff;
+    background: var(--bg-surface);
     transition: var(--transition);
     font-size: 1rem;
 }
@@ -558,13 +562,13 @@ header.scrolled {
 /* FAQ */
 .faq {
     padding: 100px 0;
-    background: #fff;
+    background: var(--bg-surface);
 }
 
 .faq-item {
     border: 1px solid #eee;
     border-radius: 15px;
-    background: #fff;
+    background: var(--bg-surface);
     margin-bottom: 15px;
     overflow: hidden;
 }
@@ -572,7 +576,7 @@ header.scrolled {
 .faq-q {
     width: 100%;
     text-align: left;
-    background: #fff;
+    background: var(--bg-surface);
     border: 0;
     padding: 20px 25px;
     font-weight: 600;
@@ -756,7 +760,7 @@ footer {
         top: 70px;
         left: 0;
         width: 100%;
-        background: white;
+        background: var(--bg-surface);
         flex-direction: column;
         padding: 20px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -799,8 +803,13 @@ footer {
         font-size: 2rem;
     }
 
+    .logo {
+        font-size: 1.4rem;
+        white-space: nowrap;
+    }
+
     .logo-img {
-        height: 50px;
+        height: 35px;
     }
 }
 
@@ -809,7 +818,7 @@ footer {
     display: none;
     text-align: center;
     padding: 40px;
-    background: white;
+    background: var(--bg-surface);
     border-radius: 20px;
     box-shadow: var(--shadow);
     animation: fadeIn 0.5s ease;
@@ -829,4 +838,97 @@ footer {
 
 .success-message p {
     color: var(--gray);
+}
+
+/* ====================
+   Dark Mode & UI Enhancements
+   ==================== */
+
+body.dark-mode {
+    --primary: #57d16b;
+    --secondary: #2ea043;
+    --accent: #0b2e13;
+    --light: #121212;
+    --dark: #f0f0f0;
+    --gray: #a0a0a0;
+    --bg-surface: #1e1e1e;
+    --header-bg: rgba(18, 18, 18, 0.95);
+    --back: #ffffff;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .logo-img {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(135deg, rgba(82, 233, 114, 0.05) 0%, rgba(46, 160, 67, 0.1) 100%);
+}
+
+body.dark-mode .cta {
+    background: linear-gradient(135deg, #0b2e13 0%, #1e5a28 100%);
+}
+
+body.dark-mode footer {
+    background: #051007;
+}
+
+body.dark-mode .footer-column h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .faq-q:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .feature-card,
+body.dark-mode .testimonial-card,
+body.dark-mode .faq-item,
+body.dark-mode .success-message,
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--dark);
+    background-color: var(--bg-surface);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--dark);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 20px;
+    transition: var(--transition);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: rotate(15deg);
+}
+
+body.dark-mode .theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle-btn {
+        margin-left: 0;
+        margin-right: 15px;
+    }
 }
