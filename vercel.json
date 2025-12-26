@@ -1,6 +1,9 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/Template/$1" }
+    {
+      "source": "/(.*)",
+      "destination": "/HTML/$1"
+    }
   ]
 }

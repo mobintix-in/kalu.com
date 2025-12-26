@@ -96,9 +96,9 @@ consultForm.addEventListener('submit', (e) => {
         formData.forEach((value, key) => object[key] = value);
         
         // Add subject line
-        object['_subject'] = 'New Inquiry from Mobintix Website';
+        object['_subject'] = 'New Inquiry from Website';
 
-        fetch("https://formsubmit.co/ajax/mobintix@gmail.com", {
+        fetch("https://formsubmit.co/ajax/contact@example.com", {
             method: "POST",
             headers: { 
                 'Content-Type': 'application/json',
